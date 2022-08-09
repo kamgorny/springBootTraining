@@ -4,10 +4,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Getter
@@ -21,6 +19,8 @@ public class Author
 
     private String firstName;
     private String lastName;
+
+    @ManyToMany(mappedBy = "authorsSet")
     private Set<Book> booksSet;
 
     public Author(String firstName, String lastName, Set<Book> booksSet)
@@ -36,4 +36,16 @@ public class Author
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return id == author.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
