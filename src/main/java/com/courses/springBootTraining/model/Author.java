@@ -8,8 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+
+/**
+ * Created by kamgorny on 09/08/22.
+ */
 
 @Getter
 @Setter
@@ -24,8 +27,14 @@ public class Author
     private String lastName;
 
     @ManyToMany(mappedBy = "authorsSet")
-    private Set<Book> booksSet;
+    private Set<Book> booksSet = new HashSet<>();
 
+    /**
+     * The constructor.
+     * @param firstName author's first name.
+     * @param lastName  author's last name.
+     * @param booksSet  a set with the books written by the author.
+     */
     public Author(String firstName, String lastName, Set<Book> booksSet)
     {
         this.firstName = firstName;

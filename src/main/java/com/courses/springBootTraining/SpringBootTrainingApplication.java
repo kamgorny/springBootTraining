@@ -3,6 +3,11 @@ package com.courses.springBootTraining;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Created by kamgorny on 09/08/22.
+ */
+
+
 @SpringBootApplication
 public class SpringBootTrainingApplication
 {

@@ -10,8 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+
+/**
+ * Created by kamgorny on 09/08/22.
+ */
+
 
 @Getter
 @Setter
@@ -28,12 +32,19 @@ public class Book
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
-    private Set<Author> authorsSet;
+    private Set<Author> authorsSet = new HashSet<>();
 
-    public Book(String title, String isbn)
+    /**
+     * The constructor.
+     * @param title the book title.
+     * @param isbn the ISBN code.
+     * @param authorsSet the set with authors of the book.
+     */
+    public Book(String title, String isbn, Set<Author> authorsSet)
     {
         this.title = title;
         this.isbn = isbn;
+        this.authorsSet = authorsSet;
     }
 
     public Book()
