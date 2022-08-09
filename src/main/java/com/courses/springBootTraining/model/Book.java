@@ -41,7 +41,19 @@ public class Book
     }
 
     @Override
-    public boolean equals(Object o) {
+    public String toString()
+    {
+        String sb = "Book{" + "id=" + id +
+                ", title='" + title + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", authorsSet=" + authorsSet +
+                '}';
+        return sb;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
@@ -49,7 +61,8 @@ public class Book
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hash(id);
     }
 }

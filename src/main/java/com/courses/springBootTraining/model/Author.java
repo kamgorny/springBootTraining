@@ -38,9 +38,20 @@ public class Author
 
     }
 
+    @Override
+    public String toString()
+    {
+        return "Author{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", booksSet=" + booksSet +
+                '}';
+    }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
@@ -48,7 +59,8 @@ public class Author
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hash(id);
     }
 }
