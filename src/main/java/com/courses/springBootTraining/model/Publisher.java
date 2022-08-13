@@ -1,12 +1,19 @@
 package com.courses.springBootTraining.model;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Publisher
 {
     @Id
@@ -14,13 +21,12 @@ public class Publisher
     private long id;
 
     private String name;
-    private String address;
+    private String addressLine;
+    private String city;
+    private String postalCode;
 
-    public Publisher(String name, String address)
-    {
-        this.name = name;
-        this.address = address;
-    }
+    @OneToMany
+    private Set<Book> books = new HashSet<>();
 
     public Publisher()
     {

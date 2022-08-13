@@ -1,5 +1,6 @@
 package com.courses.springBootTraining.model;
 
+import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +29,11 @@ public class Book
 
     private String title;
     private String isbn;
+
+
+    @ManyToOne
+    @JoinColumn(name = "publisher_id")
+    private Publisher publisher;
 
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
