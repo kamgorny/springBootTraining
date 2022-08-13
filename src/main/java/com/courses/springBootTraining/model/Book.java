@@ -63,7 +63,6 @@ public class Book
         String sb = "Book{" + "id=" + id +
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", authorsSet=" + authorsSet +
                 '}';
         return sb;
     }

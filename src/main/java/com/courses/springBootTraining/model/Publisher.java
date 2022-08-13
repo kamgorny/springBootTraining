@@ -63,6 +63,11 @@ public class Publisher
     {
         return "Publisher{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
+                ", addressLine='" + addressLine + '\'' +
+                ", city='" + city + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", books=" + books +
                 '}';
     }
 }
